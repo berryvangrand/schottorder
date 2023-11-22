@@ -1,0 +1,32 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "Rendelesek",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Rendelo",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "RendelesDatuma",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Rendelesek",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Menutipus",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "RendelesDatuma",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
+}

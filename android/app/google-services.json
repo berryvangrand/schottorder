@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "562703909549",
+    "project_id": "schott-order-mppor2",
+    "storage_bucket": "schott-order-mppor2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562703909549:android:627f49bed71e7da0813c24",
+        "android_client_info": {
+          "package_name": "schott.order.lit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD14DP47BkIZ7fp59c5leKdDKUvuVIs36c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
