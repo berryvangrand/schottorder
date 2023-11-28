@@ -136,8 +136,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                                       0.0, 0.0, 40.0, 0.0),
                                   child: Icon(
                                     Icons.add_chart,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color:
+                                        FlutterFlowTheme.of(context).aAAAAAclor,
                                     size: 16.0,
                                   ),
                                 ),
@@ -149,7 +149,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Gilroy',
-                                          color: const Color(0xB3888888),
+                                          color: FlutterFlowTheme.of(context)
+                                              .aAAAAAclor,
                                           fontWeight: FontWeight.bold,
                                           useGoogleFonts: false,
                                         ),
@@ -200,8 +201,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                                       0.0, 0.0, 40.0, 0.0),
                                   child: Icon(
                                     Icons.sticky_note_2_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color:
+                                        FlutterFlowTheme.of(context).aAAAAAclor,
                                     size: 16.0,
                                   ),
                                 ),
@@ -213,7 +214,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Gilroy',
-                                          color: const Color(0xB3888888),
+                                          color: FlutterFlowTheme.of(context)
+                                              .aAAAAAclor,
                                           fontWeight: FontWeight.bold,
                                           useGoogleFonts: false,
                                         ),
@@ -264,8 +266,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                                       0.0, 0.0, 40.0, 0.0),
                                   child: Icon(
                                     Icons.person_outline,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color:
+                                        FlutterFlowTheme.of(context).aAAAAAclor,
                                     size: 16.0,
                                   ),
                                 ),
@@ -277,7 +279,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Gilroy',
-                                          color: const Color(0xB3888888),
+                                          color: FlutterFlowTheme.of(context)
+                                              .aAAAAAclor,
                                           fontWeight: FontWeight.bold,
                                           useGoogleFonts: false,
                                         ),

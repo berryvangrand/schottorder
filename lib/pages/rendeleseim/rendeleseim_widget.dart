@@ -3,10 +3,10 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/drawer/drawer_widget.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'rendeleseim_model.dart';
 export 'rendeleseim_model.dart';
 
@@ -270,270 +270,223 @@ class _RendeleseimWidgetState extends State<RendeleseimWidget> {
                                         color: Color(0xFFEAEFF5),
                                       ),
                                       Expanded(
-                                        child: PagedListView<
-                                            DocumentSnapshot<Object?>?,
-                                            RendelesekRecord>(
-                                          pagingController:
-                                              _model.setListViewController(
-                                            RendelesekRecord.collection
-                                                .where(
-                                                  'Rendelo',
-                                                  isEqualTo:
-                                                      currentUserReference,
-                                                )
-                                                .orderBy('RendelesDatuma',
-                                                    descending: true),
-                                          ),
-                                          padding: EdgeInsets.zero,
-                                          shrinkWrap: true,
-                                          reverse: false,
-                                          scrollDirection: Axis.vertical,
-                                          builderDelegate:
-                                              PagedChildBuilderDelegate<
-                                                  RendelesekRecord>(
-                                            // Customize what your widget looks like when it's loading the first page.
-                                            firstPageProgressIndicatorBuilder:
-                                                (_) => Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child: SpinKitChasingDots(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  size: 50.0,
-                                                ),
-                                              ),
-                                            ),
-                                            // Customize what your widget looks like when it's loading another page.
-                                            newPageProgressIndicatorBuilder:
-                                                (_) => Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child: SpinKitChasingDots(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  size: 50.0,
-                                                ),
-                                              ),
-                                            ),
-
-                                            itemBuilder:
-                                                (context, _, listViewIndex) {
-                                              final listViewRendelesekRecord =
-                                                  _model
-                                                      .listViewPagingController!
-                                                      .itemList![listViewIndex];
-                                              return Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 80.0,
-                                                  decoration: const BoxDecoration(
-                                                    color: Color(0x00FFFFFF),
+                                        child: FutureBuilder<
+                                            List<RendelesekRecord>>(
+                                          future: (_model
+                                                      .firestoreRequestCompleter ??=
+                                                  Completer<
+                                                      List<RendelesekRecord>>()
+                                                    ..complete(
+                                                        queryRendelesekRecordOnce(
+                                                      queryBuilder:
+                                                          (rendelesekRecord) =>
+                                                              rendelesekRecord
+                                                                  .where(
+                                                                    'Rendelo',
+                                                                    isEqualTo:
+                                                                        currentUserReference,
+                                                                  )
+                                                                  .orderBy(
+                                                                      'RendelesDatuma',
+                                                                      descending:
+                                                                          true),
+                                                      limit: 31,
+                                                    )))
+                                              .future,
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child: SpinKitChasingDots(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    size: 50.0,
                                                   ),
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.00, 0.00),
-                                                  child: Align(
+                                                ),
+                                              );
+                                            }
+                                            List<RendelesekRecord>
+                                                listViewRendelesekRecordList =
+                                                snapshot.data!;
+                                            return RefreshIndicator(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              strokeWidth: 3.0,
+                                              onRefresh: () async {
+                                                logFirebaseEvent(
+                                                    'RENDELESEIM_ListView_lhxr0nqa_ON_PULL_TO');
+                                                setState(() => _model
+                                                        .firestoreRequestCompleter =
+                                                    null);
+                                                await _model
+                                                    .waitForFirestoreRequestCompleted();
+                                              },
+                                              child: ListView.builder(
+                                                padding: EdgeInsets.zero,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount:
+                                                    listViewRendelesekRecordList
+                                                        .length,
+                                                itemBuilder:
+                                                    (context, listViewIndex) {
+                                                  final listViewRendelesekRecord =
+                                                      listViewRendelesekRecordList[
+                                                          listViewIndex];
+                                                  return Align(
                                                     alignment:
                                                         const AlignmentDirectional(
                                                             0.00, 0.00),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Container(
-                                                                width: 150.0,
-                                                                height: 40.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      const AlignmentDirectional(
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 80.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0x00FFFFFF),
+                                                      ),
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0.00, 0.00),
+                                                      child: Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                0.00, 0.00),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Expanded(
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Container(
+                                                                    width:
+                                                                        150.0,
+                                                                    height:
+                                                                        40.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
+                                                                    ),
+                                                                    child:
+                                                                        Align(
+                                                                      alignment: const AlignmentDirectional(
                                                                           -1.00,
                                                                           0.00),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                    child: Text(
-                                                                      '# ${listViewRendelesekRecord.rendelesID}',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Gilroy',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).accent1,
-                                                                            fontSize:
-                                                                                10.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
+                                                                        child:
+                                                                            Text(
+                                                                          '# ${listViewRendelesekRecord.rendelesID}',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Gilroy',
+                                                                                color: FlutterFlowTheme.of(context).accent1,
+                                                                                fontSize: 10.0,
+                                                                                fontWeight: FontWeight.w500,
+                                                                                useGoogleFonts: false,
+                                                                              ),
+                                                                        ),
+                                                                      ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              ),
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
-                                                                child:
-                                                                    Container(
-                                                                  width: 60.0,
-                                                                  height: 40.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryBackground,
-                                                                  ),
-                                                                  alignment:
-                                                                      const AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
-                                                                  child: Align(
+                                                                  Align(
                                                                     alignment:
                                                                         const AlignmentDirectional(
                                                                             0.00,
                                                                             0.00),
                                                                     child:
-                                                                        Material(
-                                                                      color: Colors
-                                                                          .transparent,
-                                                                      elevation:
-                                                                          0.0,
-                                                                      shape:
-                                                                          RoundedRectangleBorder(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(4.0),
+                                                                        Container(
+                                                                      width:
+                                                                          60.0,
+                                                                      height:
+                                                                          40.0,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
                                                                       ),
+                                                                      alignment: const AlignmentDirectional(
+                                                                          0.00,
+                                                                          0.00),
                                                                       child:
-                                                                          Container(
-                                                                        width:
-                                                                            30.0,
-                                                                        height:
-                                                                            22.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              const Color(0xFFC5DFF5),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(4.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                const Color(0x00015ABB),
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
+                                                                          Align(
                                                                         alignment: const AlignmentDirectional(
                                                                             0.00,
                                                                             0.00),
                                                                         child:
-                                                                            Align(
-                                                                          alignment: const AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                            Material(
+                                                                          color:
+                                                                              Colors.transparent,
+                                                                          elevation:
+                                                                              0.0,
+                                                                          shape:
+                                                                              RoundedRectangleBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(4.0),
+                                                                          ),
                                                                           child:
-                                                                              Text(
-                                                                            listViewRendelesekRecord.menutipus,
-                                                                            textAlign:
-                                                                                TextAlign.center,
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Gilroy',
-                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                  fontSize: 12.0,
-                                                                                  fontWeight: FontWeight.w500,
-                                                                                  useGoogleFonts: false,
-                                                                                ),
+                                                                              Container(
+                                                                            width:
+                                                                                30.0,
+                                                                            height:
+                                                                                22.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: const Color(0xFFC5DFF5),
+                                                                              borderRadius: BorderRadius.circular(4.0),
+                                                                              border: Border.all(
+                                                                                color: const Color(0x00015ABB),
+                                                                                width: 1.0,
+                                                                              ),
+                                                                            ),
+                                                                            alignment:
+                                                                                const AlignmentDirectional(0.00, 0.00),
+                                                                            child:
+                                                                                Align(
+                                                                              alignment: const AlignmentDirectional(0.00, 0.00),
+                                                                              child: Text(
+                                                                                listViewRendelesekRecord.menutipus,
+                                                                                textAlign: TextAlign.center,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Gilroy',
+                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                      fontSize: 12.0,
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                      useGoogleFonts: false,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              ),
-                                                              Container(
-                                                                width: 80.0,
-                                                                height: 40.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      const AlignmentDirectional(
-                                                                          -1.00,
-                                                                          0.00),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            20.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      '${listViewRendelesekRecord.darabszam.toString()} db',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Gilroy',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).accent1,
-                                                                            fontSize:
-                                                                                10.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Expanded(
-                                                                child: Align(
-                                                                  alignment:
-                                                                      const AlignmentDirectional(
-                                                                          1.00,
-                                                                          0.00),
-                                                                  child:
-                                                                      Container(
+                                                                  Container(
                                                                     width: 80.0,
                                                                     height:
                                                                         40.0,
@@ -557,12 +510,7 @@ class _RendeleseimWidgetState extends State<RendeleseimWidget> {
                                                                             0.0),
                                                                         child:
                                                                             Text(
-                                                                          dateTimeFormat(
-                                                                            'Md',
-                                                                            listViewRendelesekRecord.rendelesDatuma!,
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          ),
+                                                                          '${listViewRendelesekRecord.darabszam.toString()} db',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -576,24 +524,73 @@ class _RendeleseimWidgetState extends State<RendeleseimWidget> {
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ),
+                                                                  Expanded(
+                                                                    child:
+                                                                        Align(
+                                                                      alignment: const AlignmentDirectional(
+                                                                          1.00,
+                                                                          0.00),
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            80.0,
+                                                                        height:
+                                                                            40.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                        ),
+                                                                        child:
+                                                                            Align(
+                                                                          alignment: const AlignmentDirectional(
+                                                                              -1.00,
+                                                                              0.00),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                20.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              dateTimeFormat(
+                                                                                'Md',
+                                                                                listViewRendelesekRecord.rendelesDatuma!,
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Gilroy',
+                                                                                    color: FlutterFlowTheme.of(context).accent1,
+                                                                                    fontSize: 10.0,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                    useGoogleFonts: false,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                            const Divider(
+                                                              height: 1.0,
+                                                              thickness: 1.0,
+                                                              color: Color(
+                                                                  0xFFEAEFF5),
+                                                            ),
+                                                          ],
                                                         ),
-                                                        const Divider(
-                                                          height: 1.0,
-                                                          thickness: 1.0,
-                                                          color:
-                                                              Color(0xFFEAEFF5),
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                          ),
+                                                  );
+                                                },
+                                              ),
+                                            );
+                                          },
                                         ),
                                       ),
                                     ],

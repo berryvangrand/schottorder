@@ -1,6 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -930,241 +929,262 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Stack(
-                                        children: [
-                                          Container(
-                                            width: 430.0,
-                                            height: 50.0,
-                                            decoration: const BoxDecoration(
-                                              color: Color(0x00FFFFFF),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 8.0, 0.0),
-                                                  child: SizedBox(
-                                                    width: 300.0,
-                                                    child: TextFormField(
-                                                      controller: _model
-                                                          .searchfieldController,
-                                                      focusNode: _model
-                                                          .searchfieldFocusNode,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium,
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium,
-                                                        enabledBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              const BorderSide(
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(-1.00, 0.00),
+                                        child: Stack(
+                                          children: [
+                                            Container(
+                                              width: 430.0,
+                                              height: 50.0,
+                                              decoration: const BoxDecoration(
+                                                color: Color(0x00FFFFFF),
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                8.0, 0.0),
+                                                    child: SizedBox(
+                                                      width: 300.0,
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                            .searchfieldController,
+                                                        focusNode: _model
+                                                            .searchfieldFocusNode,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium,
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium,
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0xFFEAEFF5),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        6.0),
+                                                          ),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        6.0),
+                                                          ),
+                                                          errorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        6.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        6.0),
+                                                          ),
+                                                          contentPadding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          prefixIcon: const Icon(
+                                                            Icons
+                                                                .search_rounded,
                                                             color: Color(
                                                                 0xFFEAEFF5),
-                                                            width: 1.0,
+                                                            size: 24.0,
                                                           ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      6.0),
                                                         ),
-                                                        focusedBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            width: 1.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      6.0),
-                                                        ),
-                                                        errorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 1.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      6.0),
-                                                        ),
-                                                        focusedErrorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 1.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      6.0),
-                                                        ),
-                                                        contentPadding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        prefixIcon: const Icon(
-                                                          Icons.search_rounded,
-                                                          color:
-                                                              Color(0xFFEAEFF5),
-                                                          size: 24.0,
-                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Gilroy',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .cECECEcolor,
+                                                                  fontSize:
+                                                                      10.0,
+                                                                  useGoogleFonts:
+                                                                      false,
+                                                                ),
+                                                        validator: _model
+                                                            .searchfieldControllerValidator
+                                                            .asValidator(
+                                                                context),
                                                       ),
-                                                      style:
+                                                    ),
+                                                  ),
+                                                  FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'DASHBOARD_PAGE_KERESÉS_BTN_ON_TAP');
+                                                      safeSetState(() {
+                                                        _model.simpleSearchResults =
+                                                            TextSearch(
+                                                          dashboardRendelesekRecordList
+                                                              .map(
+                                                                (record) =>
+                                                                    TextSearchItem
+                                                                        .fromTerms(
+                                                                            record,
+                                                                            [
+                                                                      record
+                                                                          .rendelesID,
+                                                                      record
+                                                                          .nev]),
+                                                              )
+                                                              .toList(),
+                                                        )
+                                                                .search(_model
+                                                                    .searchfieldController
+                                                                    .text)
+                                                                .map((r) =>
+                                                                    r.object)
+                                                                .take(10)
+                                                                .toList();
+                                                      });
+                                                      setState(() {
+                                                        _model.searchactive =
+                                                            true;
+                                                      });
+                                                    },
+                                                    text: 'Keresés',
+                                                    options: FFButtonOptions(
+                                                      width: 120.0,
+                                                      height: 50.0,
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyMedium
+                                                              .accent1,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Gilroy',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .cECECEcolor,
-                                                                fontSize: 10.0,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12.0,
                                                                 useGoogleFonts:
                                                                     false,
                                                               ),
-                                                      validator: _model
-                                                          .searchfieldControllerValidator
-                                                          .asValidator(context),
+                                                      elevation: 0.0,
+                                                      borderSide: const BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
                                                     ),
                                                   ),
-                                                ),
-                                                FFButtonWidget(
-                                                  onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'DASHBOARD_PAGE_KERESÉS_BTN_ON_TAP');
-                                                    safeSetState(() {
-                                                      _model.simpleSearchResults =
-                                                          TextSearch(
-                                                        dashboardRendelesekRecordList
-                                                            .map(
-                                                              (record) =>
-                                                                  TextSearchItem
-                                                                      .fromTerms(
-                                                                          record,
-                                                                          [
-                                                                    record
-                                                                        .rendelesID,
-                                                                    record.nev]),
-                                                            )
-                                                            .toList(),
-                                                      )
-                                                              .search(_model
-                                                                  .searchfieldController
-                                                                  .text)
-                                                              .map((r) =>
-                                                                  r.object)
-                                                              .take(10)
-                                                              .toList();
-                                                    });
-                                                    setState(() {
-                                                      _model.searchactive =
-                                                          true;
-                                                    });
-                                                  },
-                                                  text: 'Keresés',
-                                                  options: FFButtonOptions(
-                                                    width: 120.0,
-                                                    height: 50.0,
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(24.0, 0.0,
-                                                                24.0, 0.0),
-                                                    iconPadding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .accent1,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Gilroy',
-                                                          color: Colors.white,
-                                                          fontSize: 12.0,
-                                                          useGoogleFonts: false,
-                                                        ),
-                                                    elevation: 0.0,
-                                                    borderSide: const BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          if (_model.searchfieldController
-                                                      .text !=
-                                                  '')
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  1.00, 0.00),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        250.0, 0.0, 0.0, 0.0),
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      const Color(0x003279C6),
-                                                  borderRadius: 20.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 50.0,
-                                                  fillColor: const Color(0x00182A4E),
-                                                  icon: Icon(
-                                                    Icons.clear_rounded,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .cECECEcolor,
-                                                    size: 24.0,
-                                                  ),
-                                                  onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'DASHBOARD_PAGE_clear_rounded_ICN_ON_TAP');
-                                                    setState(() {
-                                                      _model
-                                                          .searchfieldController
-                                                          ?.clear();
-                                                    });
-                                                    setState(() {
-                                                      _model.searchactive =
-                                                          false;
-                                                    });
-                                                  },
-                                                ),
+                                                ],
                                               ),
                                             ),
-                                        ],
+                                            if (_model.searchfieldController
+                                                        .text !=
+                                                    '')
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    1.00, 0.00),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(260.0, 12.0,
+                                                          0.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'DASHBOARD_PAGE_Icon_cu5zg0u7_ON_TAP');
+                                                      setState(() {
+                                                        _model
+                                                            .searchfieldController
+                                                            ?.clear();
+                                                      });
+                                                      setState(() {
+                                                        _model.searchactive =
+                                                            false;
+                                                      });
+                                                    },
+                                                    child: const Icon(
+                                                      Icons.close_rounded,
+                                                      color: Color(0xFFD9D9D9),
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                          ],
+                                        ),
                                       ),
                                       Expanded(
                                         child: Align(

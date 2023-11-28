@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -318,46 +319,96 @@ class _OutofTimeWidgetState extends State<OutofTimeWidget> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: const AlignmentDirectional(0.00, 1.00),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        logFirebaseEvent(
-                            'OUTOF_TIME_PAGE_DEBUG_BELEP_BTN_ON_TAP');
+                if (valueOrDefault<bool>(currentUserDocument?.isDebug, false) ==
+                    true)
+                  Align(
+                    alignment: const AlignmentDirectional(0.00, 1.00),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+                      child: AuthUserStreamWidget(
+                        builder: (context) => FFButtonWidget(
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'OUTOF_TIME_PAGE_DEBUG_BELEP_BTN_ON_TAP');
 
-                        context.pushNamed(
-                          'Order_Main',
-                          queryParameters: {
-                            'frissmenuref': serializeParam(
-                              widget.frissmenuref,
-                              ParamType.DocumentReference,
-                            ),
-                          }.withoutNulls,
-                        );
-                      },
-                      text: 'Debug Belep',
-                      options: FFButtonOptions(
-                        height: 40.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
+                            context.pushNamed(
+                              'Order_Main',
+                              queryParameters: {
+                                'frissmenuref': serializeParam(
+                                  widget.frissmenuref,
+                                  ParamType.DocumentReference,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          text: 'Debug Belep',
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
                                   fontFamily: 'Gilroy',
                                   color: Colors.white,
                                   useGoogleFonts: false,
                                 ),
-                        elevation: 3.0,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                  ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 0.0, 0.0),
+                  child: MouseRegion(
+                    opaque: false,
+                    cursor: MouseCursor.defer ?? MouseCursor.defer,
+                    onEnter: ((event) async {
+                      setState(() => _model.mouseRegionHovered = true);
+                    }),
+                    onExit: ((event) async {
+                      setState(() => _model.mouseRegionHovered = false);
+                    }),
+                    child: Container(
+                      width: 40.0,
+                      height: 40.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 5.0,
+                            color: Color(0x10000000),
+                            offset: Offset(0.0, 5.0),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(4.0),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          logFirebaseEvent(
+                              'OUTOF_TIME_PAGE_Icon_glhi84ir_ON_TAP');
+                          scaffoldKey.currentState!.openDrawer();
+                        },
+                        child: const Icon(
+                          Icons.menu_rounded,
+                          color: Color(0xFFD2D2D2),
+                          size: 20.0,
+                        ),
                       ),
                     ),
                   ),

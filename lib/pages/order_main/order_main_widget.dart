@@ -499,7 +499,7 @@ class _OrderMainWidgetState extends State<OrderMainWidget> {
                                       BoxShadow(
                                         blurRadius: 5.0,
                                         color: Color(0x13000000),
-                                        offset: Offset(0.0, 5.0),
+                                        offset: Offset(0.0, 0.0),
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(4.0),

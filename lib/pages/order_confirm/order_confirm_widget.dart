@@ -371,7 +371,7 @@ class _OrderConfirmWidgetState extends State<OrderConfirmWidget> {
                                               actualmenu: widget.actualmenuref,
                                             );
                                           },
-                                          text: 'Fizetés',
+                                          text: 'Fizetek',
                                           options: FFButtonOptions(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -413,86 +413,88 @@ class _OrderConfirmWidgetState extends State<OrderConfirmWidget> {
                                       Align(
                                         alignment:
                                             const AlignmentDirectional(1.00, 0.00),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 10.0, 0.0),
-                                          child: Material(
-                                            color: Colors.transparent,
-                                            elevation: 0.0,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(4.0),
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 0.0,
+                                          shape: const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(8.0),
+                                              topLeft: Radius.circular(0.0),
+                                              topRight: Radius.circular(0.0),
                                             ),
-                                            child: Container(
-                                              width: 100.0,
-                                              height: 28.0,
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                                shape: BoxShape.rectangle,
-                                                border: Border.all(
-                                                  color: const Color(0x00E0E3E7),
-                                                  width: 0.0,
-                                                ),
+                                          ),
+                                          child: Container(
+                                            width: 140.0,
+                                            height: 50.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              borderRadius: const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(8.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(0.0),
                                               ),
-                                              child: FlutterFlowCountController(
-                                                decrementIconBuilder:
-                                                    (enabled) => FaIcon(
-                                                  FontAwesomeIcons.minus,
-                                                  color: enabled
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryText
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .alternate,
-                                                  size: 14.0,
-                                                ),
-                                                incrementIconBuilder:
-                                                    (enabled) => FaIcon(
-                                                  FontAwesomeIcons.plus,
-                                                  color: enabled
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .alternate,
-                                                  size: 14.0,
-                                                ),
-                                                countBuilder: (count) => Text(
-                                                  count.toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily: 'Gilroy',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontSize: 14.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        useGoogleFonts: false,
-                                                      ),
-                                                ),
-                                                count: _model
-                                                    .countControllerValue ??= 1,
-                                                updateCount: (count) =>
-                                                    setState(() => _model
-                                                            .countControllerValue =
-                                                        count),
-                                                stepSize: 1,
-                                                minimum: 1,
-                                                maximum: 50,
-                                                contentPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(15.0, 5.0,
-                                                            15.0, 5.0),
+                                              shape: BoxShape.rectangle,
+                                              border: Border.all(
+                                                color: const Color(0x00E0E3E7),
+                                                width: 0.0,
                                               ),
+                                            ),
+                                            child: FlutterFlowCountController(
+                                              decrementIconBuilder: (enabled) =>
+                                                  FaIcon(
+                                                FontAwesomeIcons.minus,
+                                                color: enabled
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                size: 18.0,
+                                              ),
+                                              incrementIconBuilder: (enabled) =>
+                                                  FaIcon(
+                                                FontAwesomeIcons.plus,
+                                                color: enabled
+                                                    ? Colors.white
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                size: 18.0,
+                                              ),
+                                              countBuilder: (count) => Text(
+                                                count.toString(),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Gilroy',
+                                                          color: Colors.white,
+                                                          fontSize: 18.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                              ),
+                                              count: _model
+                                                  .countControllerValue ??= 1,
+                                              updateCount: (count) => setState(
+                                                  () => _model
+                                                          .countControllerValue =
+                                                      count),
+                                              stepSize: 1,
+                                              minimum: 1,
+                                              maximum: 50,
+                                              contentPadding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 5.0, 20.0, 5.0),
                                             ),
                                           ),
                                         ),

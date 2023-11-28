@@ -163,7 +163,7 @@ class _AjanlatokWidgetState extends State<AjanlatokWidget> {
                                                           5.0, 5.0, 5.0, 20.0),
                                                   child: Container(
                                                     width: 200.0,
-                                                    height: 312.0,
+                                                    height: 300.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)

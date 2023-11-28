@@ -80,6 +80,11 @@ class UsersRecord extends FirestoreRecord {
   String get userRole => _userRole ?? '';
   bool hasUserRole() => _userRole != null;
 
+  // "isDebug" field.
+  bool? _isDebug;
+  bool get isDebug => _isDebug ?? false;
+  bool hasIsDebug() => _isDebug != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -94,6 +99,7 @@ class UsersRecord extends FirestoreRecord {
     _onboardingDone = snapshotData['OnboardingDone'] as bool?;
     _azonositoszam = castToType<int>(snapshotData['Azonositoszam']);
     _userRole = snapshotData['UserRole'] as String?;
+    _isDebug = snapshotData['isDebug'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -143,6 +149,7 @@ Map<String, dynamic> createUsersRecordData({
   bool? onboardingDone,
   int? azonositoszam,
   String? userRole,
+  bool? isDebug,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -159,6 +166,7 @@ Map<String, dynamic> createUsersRecordData({
       'OnboardingDone': onboardingDone,
       'Azonositoszam': azonositoszam,
       'UserRole': userRole,
+      'isDebug': isDebug,
     }.withoutNulls,
   );
 
@@ -182,7 +190,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.address == e2?.address &&
         e1?.onboardingDone == e2?.onboardingDone &&
         e1?.azonositoszam == e2?.azonositoszam &&
-        e1?.userRole == e2?.userRole;
+        e1?.userRole == e2?.userRole &&
+        e1?.isDebug == e2?.isDebug;
   }
 
   @override
@@ -199,7 +208,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.address,
         e?.onboardingDone,
         e?.azonositoszam,
-        e?.userRole
+        e?.userRole,
+        e?.isDebug
       ]);
 
   @override

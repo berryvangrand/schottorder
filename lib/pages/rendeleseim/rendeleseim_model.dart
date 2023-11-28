@@ -1,21 +1,15 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/drawer/drawer_widget.dart';
+import 'dart:async';
 import 'rendeleseim_widget.dart' show RendeleseimWidget;
 import 'package:flutter/material.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class RendeleseimModel extends FlutterFlowModel<RendeleseimWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for ListView widget.
-
-  PagingController<DocumentSnapshot?, RendelesekRecord>?
-      listViewPagingController;
-  Query? listViewPagingQuery;
-  List<StreamSubscription?> listViewStreamSubscriptions = [];
-
+  Completer<List<RendelesekRecord>>? firestoreRequestCompleter;
   // State field(s) for MouseRegion widget.
   bool mouseRegionHovered = false;
   // Model for Drawer component.
@@ -31,11 +25,6 @@ class RendeleseimModel extends FlutterFlowModel<RendeleseimWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    for (var s in listViewStreamSubscriptions) {
-      s?.cancel();
-    }
-    listViewPagingController?.dispose();
-
     drawerModel.dispose();
   }
 
@@ -43,35 +32,18 @@ class RendeleseimModel extends FlutterFlowModel<RendeleseimWidget> {
 
   /// Additional helper methods are added here.
 
-  PagingController<DocumentSnapshot?, RendelesekRecord> setListViewController(
-    Query query, {
-    DocumentReference<Object?>? parent,
-  }) {
-    listViewPagingController ??= _createListViewController(query, parent);
-    if (listViewPagingQuery != query) {
-      listViewPagingQuery = query;
-      listViewPagingController?.refresh();
+  Future waitForFirestoreRequestCompleted({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(const Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = firestoreRequestCompleter?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
     }
-    return listViewPagingController!;
-  }
-
-  PagingController<DocumentSnapshot?, RendelesekRecord>
-      _createListViewController(
-    Query query,
-    DocumentReference<Object?>? parent,
-  ) {
-    final controller = PagingController<DocumentSnapshot?, RendelesekRecord>(
-        firstPageKey: null);
-    return controller
-      ..addPageRequestListener(
-        (nextPageMarker) => queryRendelesekRecordPage(
-          queryBuilder: (_) => listViewPagingQuery ??= query,
-          nextPageMarker: nextPageMarker,
-          streamSubscriptions: listViewStreamSubscriptions,
-          controller: controller,
-          pageSize: 10,
-          isStream: true,
-        ),
-      );
   }
 }

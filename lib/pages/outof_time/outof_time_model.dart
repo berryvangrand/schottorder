@@ -13,6 +13,8 @@ class OutofTimeModel extends FlutterFlowModel<OutofTimeWidget> {
 
   int carouselCurrentIndex = 0;
 
+  // State field(s) for MouseRegion widget.
+  bool mouseRegionHovered = false;
   // Model for Drawer component.
   late DrawerModel drawerModel;
 

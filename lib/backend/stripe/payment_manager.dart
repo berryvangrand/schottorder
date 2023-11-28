@@ -175,7 +175,7 @@ Future<StripePaymentResponse> showWebPaymentSheet(
                           children: [
                             Expanded(
                               child: Text(
-                                'Fizetési Információk',
+                                'Payment Information',
                                 style: GoogleFonts.outfit(
                                   color: isDarkMode
                                       ? Colors.white
@@ -260,7 +260,7 @@ Future<StripePaymentResponse> showWebPaymentSheet(
                         }
                       },
                       text:
-                          'Fizetés ${_displayAmount(currency, amount.toDouble())}',
+                          'Pay ${_displayAmount(currency, amount.toDouble())}',
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 44,

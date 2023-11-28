@@ -106,8 +106,8 @@ class _DrawerAdminWidgetState extends State<DrawerAdminWidget> {
                                       0.0, 0.0, 40.0, 0.0),
                                   child: Icon(
                                     Icons.event_note_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color:
+                                        FlutterFlowTheme.of(context).aAAAAAclor,
                                     size: 16.0,
                                   ),
                                 ),
@@ -119,7 +119,8 @@ class _DrawerAdminWidgetState extends State<DrawerAdminWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Gilroy',
-                                          color: const Color(0xB3888888),
+                                          color: FlutterFlowTheme.of(context)
+                                              .aAAAAAclor,
                                           fontWeight: FontWeight.bold,
                                           useGoogleFonts: false,
                                         ),
@@ -170,8 +171,8 @@ class _DrawerAdminWidgetState extends State<DrawerAdminWidget> {
                                       0.0, 0.0, 40.0, 0.0),
                                   child: Icon(
                                     Icons.post_add,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color:
+                                        FlutterFlowTheme.of(context).aAAAAAclor,
                                     size: 16.0,
                                   ),
                                 ),
@@ -183,7 +184,8 @@ class _DrawerAdminWidgetState extends State<DrawerAdminWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Gilroy',
-                                          color: const Color(0xB3888888),
+                                          color: FlutterFlowTheme.of(context)
+                                              .aAAAAAclor,
                                           fontWeight: FontWeight.bold,
                                           useGoogleFonts: false,
                                         ),
@@ -234,8 +236,8 @@ class _DrawerAdminWidgetState extends State<DrawerAdminWidget> {
                                       0.0, 0.0, 40.0, 0.0),
                                   child: Icon(
                                     Icons.post_add,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color:
+                                        FlutterFlowTheme.of(context).aAAAAAclor,
                                     size: 16.0,
                                   ),
                                 ),
@@ -247,7 +249,8 @@ class _DrawerAdminWidgetState extends State<DrawerAdminWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Gilroy',
-                                          color: const Color(0xB3888888),
+                                          color: FlutterFlowTheme.of(context)
+                                              .aAAAAAclor,
                                           fontWeight: FontWeight.bold,
                                           useGoogleFonts: false,
                                         ),

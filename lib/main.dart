@@ -96,12 +96,12 @@ class _MyAppState extends State<MyApp> {
           radius: const Radius.circular(100.0),
           thumbColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.dragged)) {
-              return const Color(0xff3279c6);
+              return const Color(0xffaaaaaa);
             }
             if (states.contains(MaterialState.hovered)) {
-              return const Color(0xff3279c6);
+              return const Color(0xffaaaaaa);
             }
-            return const Color(0xff3279c6);
+            return const Color(0xffaaaaaa);
           }),
         ),
       ),
